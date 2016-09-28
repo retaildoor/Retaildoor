@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+<![CDATA[
+Within this Character Data block I can
+use double dashes as much as I want (along with <, &, ', and ")
+*and* %MyParamEntity; will be expanded to the text
+"Has been expanded" ... however, I can't use
+the CEND sequence (if I need to use it I must escape one of the
+brackets or the greater-than sign).
+]]>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Retail Door Analysis</title>
+
+		<!-- Global stylesheets -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
+	<link href="assets/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/bootstrap.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/core.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/components.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/colors.css" rel="stylesheet" type="text/css">
+	<!-- /global stylesheets -->
+
+	<!-- Core JS files -->
+	<script type="text/javascript" src="assets/js/plugins/loaders/pace.min.js"></script>
+	<script type="text/javascript" src="assets/js/core/libraries/jquery.min.js"></script>
+	<script type="text/javascript" src="assets/js/core/libraries/bootstrap.min.js"></script>
+	<script type="text/javascript" src="assets/js/plugins/loaders/blockui.min.js"></script>
+	<script type="text/javascript" data-pace-options='{"ajax": false}' src="assets/js/plugins/loaders/pace.min.js"></script>
+	<!-- /core JS files -->
+
+	<!-- Theme JS files -->
+	<script type="text/javascript" src="assets/js/core/libraries/jquery_ui/core.min.js"></script>
+	<script type="text/javascript" src="assets/js/plugins/forms/wizards/form_wizard/form.min.js"></script>
+	<script type="text/javascript" src="assets/js/plugins/forms/wizards/form_wizard/form_wizard.min.js"></script>
+	<script type="text/javascript" src="assets/js/plugins/forms/selects/select2.min.js"></script>
+	<script type="text/javascript" src="assets/js/plugins/forms/styling/uniform.min.js"></script>
+	<script type="text/javascript" src="assets/js/core/libraries/jasny_bootstrap.min.js"></script>
+	<script type="text/javascript" src="assets/js/plugins/forms/validation/validate.min.js"></script>
+	<script type="text/javascript" src="assets/js/plugins/notifications/sweet_alert.min.js"></script>
+	<script type="text/javascript" src="assets/js/pages/jqueryui_forms.js"></script>
+	<script type="text/javascript" src="assets/js/core/libraries/jquery_ui/interactions.min.js"></script>
+	<script type="text/javascript" src="assets/js/core/libraries/jquery_ui/widgets.min.js"></script>
+	<script type="text/javascript" src="assets/js/core/libraries/jquery_ui/effects.min.js"></script>
+	<script type="text/javascript" src="assets/js/plugins/extensions/mousewheel.min.js"></script>
+	<script type="text/javascript" src="assets/js/plugins/uploaders/fileinput.min.js"></script>
+
+	<script type="text/javascript" src="assets/js/core/app.js"></script>
+	<script type="text/javascript" src="assets/js/pages/uploader_bootstrap.js"></script>
+	<script type="text/javascript" src="assets/js/pages/wizard_form.js"></script>
+
+</head>
+
+<body>
+
+	<!-- Main navbar -->
+	<div class="navbar navbar-inverse">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="dashboard.html"><img
+				src="assets/images/CM/P Logo.png" alt=""
+				style="width: 200px; height: 50px; margin-top: -12px;"></a>
+
+			<ul class="nav navbar-nav visible-xs-block">
+				<li><a data-toggle="collapse" data-target="#navbar-mobile"><i
+						class="icon-tree5"></i></a></li>
+				<li><a class="sidebar-mobile-main-toggle"><i
+						class="icon-paragraph-justify3"></i></a></li>
+			</ul>
+		</div>
+
+		<div class="navbar-collapse collapse" id="navbar-mobile">
+			<ul class="nav navbar-nav" style="margin-left: -10px;">
+				<li><a class="sidebar-control sidebar-main-toggle hidden-xs"
+					title="Side-Bar Toggle"><i class="icon-paragraph-justify3"></i></a></li>
+			</ul>
+
+
+
+			<ul class="nav navbar-nav navbar-right">
+				<p class="navbar-text">
+					<span class="label bg-success">Online</span>
+				</p>
+				<li class="dropdown language-switch"><a class="dropdown-toggle"
+					data-toggle="dropdown"> <img src="assets/images/flags/gb.png"
+						class="position-left" alt=""> English <span class="caret"></span>
+				</a>
+
+					<ul class="dropdown-menu">
+						<li><a class="deutsch"><img
+								src="assets/images/flags/de.png" alt=""> Deutsch</a></li>
+						<li><a class="ukrainian"><img
+								src="assets/images/flags/ua.png" alt=""> Українська</a></li>
+						<li><a class="english"><img
+								src="assets/images/flags/gb.png" alt=""> English</a></li>
+						<li><a class="espana"><img
+								src="assets/images/flags/es.png" alt=""> España</a></li>
+						<li><a class="russian"><img
+								src="assets/images/flags/ru.png" alt=""> Русский</a></li>
+					</ul></li>
+
+
+				<li class="dropdown"><a href="#" class="dropdown-toggle"
+					data-toggle="dropdown"> <i class="icon-people"></i> <span
+						class="visible-xs-inline-block position-right">Users</span>
+				</a>
+
+					<div class="dropdown-menu dropdown-content">
+						<div class="dropdown-content-heading">
+							Users online
+							<ul class="icons-list">
+								<li><a href="#"><i class="icon-gear"></i></a></li>
+							</ul>
+						</div>
+
+						<ul class="media-list dropdown-content-body width-300">
+							<li class="media">
+								<div class="media-left">
+									<img src="assets/images/profile/1.jpg"
+										class="img-circle img-sm" alt="">
+								</div>
+								<div class="media-body">
+									<a href="#" class="media-heading text-semibold">Jordana
+										Ansley</a> <span class="display-block text-muted text-size-small">Lead
+										web developer</span>
+								</div>
+								<div class="media-right media-middle">
+									<span class="status-mark border-success"></span>
+								</div>
+							</li>
+
+							<li class="media">
+								<div class="media-left">
+									<img src="assets/images/profile/3.jpg"
+										class="img-circle img-sm" alt="">
+								</div>
+								<div class="media-body">
+									<a href="#" class="media-heading text-semibold">Will Brason</a>
+									<span class="display-block text-muted text-size-small">Marketing
+										manager</span>
+								</div>
+								<div class="media-right media-middle">
+									<span class="status-mark border-danger"></span>
+								</div>
+							</li>
+
+							<li class="media">
+								<div class="media-left">
+									<img src="assets/images/profile/4.jpg"
+										class="img-circle img-sm" alt="">
+								</div>
+								<div class="media-body">
+									<a href="#" class="media-heading text-semibold">Hanna
+										Walden</a> <span class="display-block text-muted text-size-small">Project
+										manager</span>
+								</div>
+								<div class="media-right media-middle">
+									<span class="status-mark border-success"></span>
+								</div>
+							</li>
+
+							<li class="media">
+								<div class="media-left">
+									<img src="assets/images/profile/5.jpg"
+										class="img-circle img-sm" alt="">
+								</div>
+								<div class="media-body">
+									<a href="#" class="media-heading text-semibold">Dori
+										Laperriere</a> <span
+										class="display-block text-muted text-size-small">Business
+										developer</span>
+								</div>
+								<div class="media-right media-middle">
+									<span class="status-mark border-warning-300"></span>
+								</div>
+							</li>
+
+							<li class="media">
+								<div class="media-left">
+									<img src="assets/images/profile/6.jpg"
+										class="img-circle img-sm" alt="">
+								</div>
+								<div class="media-body">
+									<a href="#" class="media-heading text-semibold">Vanessa
+										Aurelius</a> <span
+										class="display-block text-muted text-size-small">UX
+										expert</span>
+								</div>
+								<div class="media-right media-middle">
+									<span class="status-mark border-grey-400"></span>
+								</div>
+							</li>
+						</ul>
+
+						<div class="dropdown-content-footer">
+							<a href="#" data-popup="tooltip" title="All users"><i
+								class="icon-menu display-block"></i></a>
+						</div>
+					</div></li>
+				<li class="dropdown"><a href="#" class="dropdown-toggle"
+					data-toggle="dropdown"> <i class="icon-git-compare"></i> <span
+						class="visible-xs-inline-block position-right">Git updates</span>
+						<span class="badge bg-warning-400">9</span>
+				</a>
+
+					<div class="dropdown-menu dropdown-content">
+						<div class="dropdown-content-heading">
+							Git updates
+							<ul class="icons-list">
+								<li><a href="#"><i class="icon-sync"></i></a></li>
+							</ul>
+						</div>
+
+						<ul class="media-list dropdown-content-body width-350">
+							<li class="media">
+								<div class="media-left">
+									<a href="#"
+										class="btn border-primary text-primary btn-flat btn-rounded btn-icon btn-sm"><i
+										class="icon-git-pull-request"></i></a>
+								</div>
+
+								<div class="media-body">
+									Drop the IE <a href="#">specific hacks</a> for temporal inputs
+									<div class="media-annotation">4 minutes ago</div>
+								</div>
+							</li>
+
+							<li class="media">
+								<div class="media-left">
+									<a href="#"
+										class="btn border-warning text-warning btn-flat btn-rounded btn-icon btn-sm"><i
+										class="icon-git-commit"></i></a>
+								</div>
+
+								<div class="media-body">
+									Add full font overrides for popovers and tooltips
+									<div class="media-annotation">36 minutes ago</div>
+								</div>
+							</li>
+
+							<li class="media">
+								<div class="media-left">
+									<a href="#"
+										class="btn border-info text-info btn-flat btn-rounded btn-icon btn-sm"><i
+										class="icon-git-branch"></i></a>
+								</div>
+
+								<div class="media-body">
+									<a href="#">Chris Arney</a> created a new <span
+										class="text-semibold">Design</span> branch
+									<div class="media-annotation">2 hours ago</div>
+								</div>
+							</li>
+
+							<li class="media">
+								<div class="media-left">
+									<a href="#"
+										class="btn border-success text-success btn-flat btn-rounded btn-icon btn-sm"><i
+										class="icon-git-merge"></i></a>
+								</div>
+
+								<div class="media-body">
+									<a href="#">Eugene Kopyov</a> merged <span
+										class="text-semibold">Master</span> and <span
+										class="text-semibold">Dev</span> branches
+									<div class="media-annotation">Dec 18, 18:36</div>
+								</div>
+							</li>
+
+							<li class="media">
+								<div class="media-left">
+									<a href="#"
+										class="btn border-primary text-primary btn-flat btn-rounded btn-icon btn-sm"><i
+										class="icon-git-pull-request"></i></a>
+								</div>
+
+								<div class="media-body">
+									Have Carousel ignore keyboard events
+									<div class="media-annotation">Dec 12, 05:46</div>
+								</div>
+							</li>
+						</ul>
+
+						<div class="dropdown-content-footer">
+							<a href="#" data-popup="tooltip" title="All activity"><i
+								class="icon-menu display-block"></i></a>
+						</div>
+					</div></li>
+				<li class="dropdown"><a href="#" class="dropdown-toggle"
+					data-toggle="dropdown"> <i class="icon-bubbles4"></i> <span
+						class="visible-xs-inline-block position-right">Messages</span> <span
+						class="badge bg-warning-400">2</span>
+				</a>
+
+					<div class="dropdown-menu dropdown-content width-350">
+						<div class="dropdown-content-heading">
+							Messages
+							<ul class="icons-list">
+								<li><a href="#"><i class="icon-compose"></i></a></li>
+							</ul>
+						</div>
+
+						<ul class="media-list dropdown-content-body">
+							<li class="media">
+								<div class="media-left">
+									<img src="assets/images/profile/2.jpg"
+										class="img-circle img-sm" alt=""> <span
+										class="badge bg-danger-400 media-badge">5</span>
+								</div>
+
+								<div class="media-body">
+									<a href="#" class="media-heading"> <span
+										class="text-semibold">James Alexander</span> <span
+										class="media-annotation pull-right">04:58</span>
+									</a> <span class="text-muted">who knows, maybe that would be
+										the best thing for me...</span>
+								</div>
+							</li>
+
+							<li class="media">
+								<div class="media-left">
+									<img src="assets/images/profile/1.jpg"
+										class="img-circle img-sm" alt=""> <span
+										class="badge bg-danger-400 media-badge">4</span>
+								</div>
+
+								<div class="media-body">
+									<a href="#" class="media-heading"> <span
+										class="text-semibold">Margo Baker</span> <span
+										class="media-annotation pull-right">12:16</span>
+									</a> <span class="text-muted">That was something he was
+										unable to do because...</span>
+								</div>
+							</li>
+
+							<li class="media">
+								<div class="media-left">
+									<img src="assets/images/profile/8.jpg"
+										class="img-circle img-sm" alt="">
+								</div>
+								<div class="media-body">
+									<a href="#" class="media-heading"> <span
+										class="text-semibold">Jeremy Victorino</span> <span
+										class="media-annotation pull-right">22:48</span>
+									</a> <span class="text-muted">But that would be extremely
+										strained and suspicious...</span>
+								</div>
+							</li>
+
+							<li class="media">
+								<div class="media-left">
+									<img src="assets/images/profile/9.jpg"
+										class="img-circle img-sm" alt="">
+								</div>
+								<div class="media-body">
+									<a href="#" class="media-heading"> <span
+										class="text-semibold">Beatrix Diaz</span> <span
+										class="media-annotation pull-right">Tue</span>
+									</a> <span class="text-muted">What a strenuous career it is
+										that I've chosen...</span>
+								</div>
+							</li>
+
+							<li class="media">
+								<div class="media-left">
+									<img src="assets/images/profile/5.jpg"
+										class="img-circle img-sm" alt="">
+								</div>
+								<div class="media-body">
+									<a href="#" class="media-heading"> <span
+										class="text-semibold">Richard Vango</span> <span
+										class="media-annotation pull-right">Mon</span>
+									</a> <span class="text-muted">Other travelling salesmen live
+										a life of luxury...</span>
+								</div>
+							</li>
+						</ul>
+
+						<div class="dropdown-content-footer">
+							<a href="#" data-popup="tooltip" title="All messages"><i
+								class="icon-menu display-block"></i></a>
+						</div>
+					</div></li>
+				<li><a href="logintc.html" title="Logout"><i class="icon-switch2"></i></a></li>
+			</ul>
+
+		</div>
+	</div>
+	<!-- /main navbar -->
+
+
+	<!-- Page container -->
+	<div class="page-container">
+<script type="text/javascript">
+	$('.stepy-header').hide();
+</script>
+		<!-- Page content -->
+		<div class="page-content" style="background: #ecf0f5;">
+
+			<!-- Main sidebar -->
+			<div class="sidebar sidebar-main">
+				<div class="sidebar-content">
+
+					<!-- User menu -->
+					<div class="sidebar-user">
+						<div class="category-content">
+							<div class="media">
+								<a href="#" class="media-left"><img
+									src="assets/images/profile/2.jpg" class="img-circle img-sm"
+									alt=""></a>
+								<div class="media-body">
+									<!-- <span class="media-heading text-semibold">Victoria Baker</span>
+									<div class="text-size-mini text-muted">
+										<i class="icon-pin text-size-small"></i> &nbsp;Santa Ana, CA
+									</div> -->
+									<a class="dropdown-toggle" data-toggle="dropdown">
+
+										<div class="row">
+											<div class="col-sm-10">
+												<span class="media-heading text-semibold">Victoria
+													Baker</span> <i class="icon-pin text-size-small"></i> &nbsp;Santa
+												Ana, CA
+											</div>
+											<div class="col-sm-2">
+												<i class="glyphicon glyphicon-menu-down"
+													style="margin-left: -30px; margin-top: 12px;"></i>
+											</div>
+										</div>
+
+
+
+									</a>
+
+									<ul class="dropdown-menu dropdown-menu-right">
+										<li><a href="#"><i class="icon-user-plus"></i> My
+												profile</a></li>
+										<li><a href="#"><i class="icon-coins"></i> My balance</a></li>
+										<li><a href="#"><span
+												class="badge bg-teal-400 pull-right">58</span> <i
+												class="icon-comment-discussion"></i> Messages</a></li>
+										<li class="divider"></li>
+										<li><a href="#"><i class="icon-cog5"></i> Account
+												settings</a></li>
+										<li><a href="logintc.html"><i class="icon-switch2"></i> Logout</a></li>
+									</ul>
+								</div>
+
+								<!-- 	<div class="media-left media-middle">
+									<ul class="icons-list">
+										<li class="dropdown dropdown-user">
+									<a class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-menu-down"></i></a>
+
+										<ul class="dropdown-menu dropdown-menu-right">
+											<li><a href="#"><i class="icon-user-plus"></i> My profile</a></li>
+											<li><a href="#"><i class="icon-coins"></i> My balance</a></li>
+											<li><a href="#"><span class="badge bg-blue pull-right">58</span> <i class="icon-comment-discussion"></i> Messages</a></li>
+											<li class="divider"></li>
+											<li><a href="#"><i class="icon-cog5"></i> Account settings</a></li>
+											<li><a href="#"><i class="icon-switch2"></i> Logout</a></li>
+										</ul>
+									</li>
+									</ul>
+								</div> -->
+							</div>
+						</div>
+					</div>
+					<!-- /user menu -->
+
+
+					<!-- Main navigation -->
+					<div class="sidebar-category sidebar-category-visible">
+						<div class="category-content no-padding">
+							<ul class="navigation navigation-main navigation-accordion">
+
+								<!-- Main -->
+								<li class="navigation-header"><span>Home</span> <i class="icon-menu" title="Main pages"></i></li>
+								<li><a href="dashboard.html"><i class="icon-home4"></i> <span>Dashboard</span></a></li>
+								<li><a href="analytics.html"><i class="glyphicon glyphicon-stats"></i> <span>Analytics</span></a></li>
+								<li><a href="reports.html"><i class="glyphicon glyphicon-stats"></i> <span>Reports</span></a></li>
+								<li><a href="kpi-bootstrap.html"><i class="glyphicon glyphicon-stats"></i> <span>KPI</span></a></li>
+								<li><a href="doorlist.html"><i class="icon-list"></i><span> Doors </span></a></li>
+								<li class="active"><a href="uploadtc.html"><i class="icon-upload"></i><span> Import Data </span></a></li>
+																	
+								
+
+							</ul>
+						</div>
+					</div>
+					<!-- /main navigation -->
+
+				</div>
+			</div>
+			<!-- /main sidebar -->
+
+
+			<!-- Main content -->
+			<div class="content-wrapper">
+
+				<!-- Page header -->
+				<div class="page-header" style="background: #ecf0f5;">
+
+					<!-- Header content -->
+					<div class="page-header-content">
+						<div class="page-title" style="padding:15px 15px 15px 0;">
+							<h4><a href="dashboard.html"><i class="icon-arrow-left52 position-left" style="color:black;"></i></a><span class="text-semibold">Upload</span></h4>
+						</div>
+					</div>
+					<!-- /header content -->
+				</div>
+				<!-- /page header -->
+
+
+				<!-- Content area -->
+				<div class="content">
+<!-- 
+
+				<div class="container-fluid" style="display:none;">
+				<marquee id="marque" behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();">
+					<img src="assets/images/brands/amazon.png" alt="First slide">
+					<img src="assets/images/brands/facebook.png" alt="First slide">
+					<img src="assets/images/brands/bing.png" alt="First slide">
+					<img src="assets/images/brands/spotify.png" alt="First slide">
+				</marquee>
+				</div> -->
+
+					<!-- User profile -->
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="tabbable">
+								<div class="tab-content">
+
+									<div class="tab-pane fade in active" id="details">
+
+										<!-- Profile info -->
+										<div class="panel panel-flat">
+											<!-- <div class="panel-heading">
+											<div class="col-sm-12">	
+											<div class="col-sm-12">
+												<div class="heading-elements">
+													<ul class="icons-list">
+													<li><span class="glyphicon glyphicon-pencil"></span></li>
+								                		<li><a data-action="collapse"></a></li>
+								                		<li><a data-action="reload"></a></li>
+								                		<li><a data-action="close"></a></li>
+								                	</ul>
+							                	</div>
+											</div>
+									
+							                </div>
+											</div>
+											<hr> -->
+
+											<div class="panel-body">
+												<div class="col-md-12">
+												<label class="col-lg-2 control-label text-bold"
+													style="margin-left: 0px; color: #00BCD4;">Traffic
+													Statistics:</label>
+											</div>
+
+											<div class="col-md-12">
+												<div class="col-lg-4">
+													<div class="panel panel-default">
+														<div class="panel-heading text-center" style="padding:10px 10px 10px 0px;">
+															<span class="text-bold">Download Traffic Template</span>
+														</div>
+														<div class="panel-body" style="height:380px;">
+															<div><span class="text-semibold" style="font-size:14px;">Use the required template to successfully upload traffic data</span></div>
+															<br>
+															<div><a href="files\traffic statistics.csv" download><button class="btn btn-info">Download Traffic Template</button></a></div>
+															<hr>
+															<div><span class="text-semibold" style="font-size:15px;">Make sure your file includes :</span>
+															<br>
+															<br>
+																<ul style="font-size:14px;">
+																	<li>Valid Store Numbers</li>
+																	<li>Date formatted as MM/DD/YYYY</li>
+																	<li>Numerical values in all columns</li>
+																	<li>Corresponding Store Numbers and details</li>
+																	<li>Original columns headers and ordering</li>
+																</ul>
+															</div>
+														</div>
+													</div>
+												</div>
+
+												<div class="col-lg-8">
+												<div class="panel panel-default">
+														<div class="panel-heading text-center" style="padding:10px 10px 10px 0px;">
+															<span class="text-bold">Upload Traffic Data</span>
+														</div>
+														<div class="panel-body" style="height:380px;">
+															<div class="form-group">
+														<input type="file" class="file-input-ajax" multiple="multiple" style="background:#f5f5f5;" accept=".csv">
+													</div>
+														</div>
+													</div>
+																
+												</div>
+											</div>
+											<div class="col-md-12">
+												<label class="col-lg-2 control-label text-bold"
+													style="margin-left: 0px; color: #00BCD4;">Sales
+													Statistics:</label>
+											</div>
+											<div class="col-md-12">
+												<div class="col-lg-4">
+													<div class="panel panel-default">
+														<div class="panel-heading text-center" style="padding:10px 10px 10px 0px;">
+															<span class="text-bold" style="font-size:14px;">Download Sales Template</span>
+														</div>
+														<div class="panel-body" style="height:380px;">
+															<div><span class="text-semibold">Use the required template to successfully upload sales data</span></div>
+															<br>
+															<div><a href="files\sales statistics.csv" download><button class="btn btn-info">Download Sales Template</button></a></div>
+															<hr>
+															<div><span class="text-semibold" style="font-size:15px;">Make sure your file includes :</span>
+															<br>
+															<br>
+																<ul style="font-size:14px;">
+																	<li>Valid Store Numbers</li>
+																	<li>Date formatted as MM/DD/YYYY</li>
+																	<li>Numerical values in all columns</li>
+																	<li>Corresponding Store Numbers and details</li>
+																	<li>Original columns headers and ordering</li>
+																</ul>
+															</div>
+														</div>
+													</div>
+												</div>
+
+												<div class="col-lg-8">
+												<div class="panel panel-default">
+														<div class="panel-heading text-center" style="padding:10px 10px 10px 0px;">
+															<span class="text-bold">Upload Sales Data</span>
+														</div>
+														<div class="panel-body" style="height:380px;">
+															<div class="form-group">
+														<input type="file" class="file-input-ajax" multiple="multiple" style="background:#f5f5f5;" accept=".csv">
+													</div>
+														</div>
+													</div>
+																
+												</div>
+											</div>
+											</div>
+										</div>
+										<!-- /profile info -->
+
+
+										<!-- Account settings -->
+										<!-- <div class="panel panel-flat">
+											<div class="panel-heading">
+												<h6 class="panel-title">Account settings</h6>
+												<div class="heading-elements">
+													<ul class="icons-list">
+								                		<li><a data-action="collapse"></a></li>
+								                		<li><a data-action="reload"></a></li>
+								                		<li><a data-action="close"></a></li>
+								                	</ul>
+							                	</div>
+											</div>
+
+											<div class="panel-body">
+												<form action="#">
+													<div class="form-group">
+														<div class="row">
+															<div class="col-md-6">
+																<label>Username</label>
+																<input type="text" value="Kopyov" readonly="readonly" class="form-control">
+															</div>
+
+															<div class="col-md-6">
+																<label>Current password</label>
+																<input type="password" value="password" readonly="readonly" class="form-control">
+															</div>
+														</div>
+													</div>
+
+													<div class="form-group">
+														<div class="row">
+															<div class="col-md-6">
+																<label>New password</label>
+																<input type="password" placeholder="Enter new password" class="form-control">
+															</div>
+
+															<div class="col-md-6">
+																<label>Repeat password</label>
+																<input type="password" placeholder="Repeat new password" class="form-control">
+															</div>
+														</div>
+													</div>
+
+													<div class="form-group">
+														<div class="row">
+															<div class="col-md-6">
+																<label>Profile visibility</label>
+
+																<div class="radio">
+																	<label>
+																		<input type="radio" name="visibility" class="styled" checked="checked">
+																		Visible to everyone
+																	</label>
+																</div>
+
+																<div class="radio">
+																	<label>
+																		<input type="radio" name="visibility" class="styled">
+																		Visible to friends only
+																	</label>
+																</div>
+
+																<div class="radio">
+																	<label>
+																		<input type="radio" name="visibility" class="styled">
+																		Visible to my connections only
+																	</label>
+																</div>
+
+																<div class="radio">
+																	<label>
+																		<input type="radio" name="visibility" class="styled">
+																		Visible to my colleagues only
+																	</label>
+																</div>
+															</div>
+
+															<div class="col-md-6">
+																<label>Notifications</label>
+
+																<div class="checkbox">
+																	<label>
+																		<input type="checkbox" class="styled" checked="checked">
+																		Password expiration notification
+																	</label>
+																</div>
+
+																<div class="checkbox">
+																	<label>
+																		<input type="checkbox" class="styled" checked="checked">
+																		New message notification
+																	</label>
+																</div>
+
+																<div class="checkbox">
+																	<label>
+																		<input type="checkbox" class="styled" checked="checked">
+																		New task notification
+																	</label>
+																</div>
+
+																<div class="checkbox">
+																	<label>
+																		<input type="checkbox" class="styled">
+																		New contact request notification
+																	</label>
+																</div>
+															</div>
+														</div>
+													</div>
+
+							                        <div class="text-right">
+							                        	<button type="submit" class="btn btn-primary">Save <i class="icon-arrow-right14 position-right"></i></button>
+							                        </div>
+						                        </form>
+											</div>
+										</div> -->
+										<!-- /account settings -->
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /user profile -->
+
+
+					<!-- Footer -->
+					<!-- <div class="footer-fluid text-muted text-center">
+						&copy; 2015. <a href="#">Limitless Web App Kit</a> by <a href="http://themeforest.net/user/Kopyov" target="_blank">Eugene Kopyov</a>
+					</div> -->
+					<!-- /footer -->
+
+				</div>
+				<!-- /content area -->
+
+			</div>
+			<!-- /main content -->
+
+		</div>
+		<!-- /page content -->
+
+	</div>
+	<!-- /page container -->
+
+</body>
+</html>

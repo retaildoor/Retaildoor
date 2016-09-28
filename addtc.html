@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Retail Door Analysis</title>
+
+<link
+	href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900"
+	rel="stylesheet" type="text/css">
+<link href="assets/css/icons/icomoon/styles.css" rel="stylesheet"
+	type="text/css">
+<link href="assets/css/bootstrap.css" rel="stylesheet" type="text/css">
+<link href="assets/css/core.css" rel="stylesheet" type="text/css">
+<link href="assets/css/components.css" rel="stylesheet" type="text/css">
+<link href="assets/css/colors.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet"
+	href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+<!-- /global stylesheets -->
+
+<link rel="stylesheet" type="text/css" href="assets/css/imageupload.css">
+
+<!-- Core JS files -->
+<script type="text/javascript"
+	src="assets/js/plugins/loaders/pace.min.js"></script>
+<script type="text/javascript"
+	src="assets/js/core/libraries/jquery.min.js"></script>
+<script type="text/javascript"
+	src="assets/js/core/libraries/bootstrap.min.js"></script>
+<script type="text/javascript"
+	src="assets/js/plugins/loaders/blockui.min.js"></script>
+<!-- /core JS files -->
+
+<!-- Theme JS files -->
+<script type="text/javascript"
+	src="assets/js/core/libraries/jquery_ui/core.min.js"></script>
+<script type="text/javascript"
+	src="assets/js/plugins/forms/wizards/form_wizard/form.min.js"></script>
+<script type="text/javascript"
+	src="assets/js/plugins/forms/wizards/form_wizard/form_wizard.min.js"></script>
+<script type="text/javascript"
+	src="assets/js/plugins/forms/selects/select2.min.js"></script>
+<script type="text/javascript"
+	src="assets/js/plugins/forms/styling/uniform.min.js"></script>
+<script type="text/javascript"
+	src="assets/js/core/libraries/jasny_bootstrap.min.js"></script>
+<script type="text/javascript"
+	src="assets/js/plugins/forms/validation/validate.min.js"></script>
+<script type="text/javascript"
+	src="assets/js/plugins/notifications/sweet_alert.min.js"></script>
+<script type="text/javascript"
+	src="assets/js/core/libraries/jquery_ui/widgets.min.js"></script>
+<script type="text/javascript"
+	src="assets/js/core/libraries/jquery_ui/effects.min.js"></script>
+<script type="text/javascript"
+	src="assets/js/plugins/extensions/mousewheel.min.js"></script>
+<script type="text/javascript"
+	src="assets/js/core/libraries/jquery_ui/globalize/globalize.js"></script>
+<script type="text/javascript"
+	src="assets/js/core/libraries/jquery_ui/globalize/cultures/globalize.culture.de-DE.js"></script>
+<script type="text/javascript"
+	src="assets/js/core/libraries/jquery_ui/globalize/cultures/globalize.culture.ja-JP.js"></script>
+
+<script type="text/javascript"
+	src="assets/js/plugins/notifications/jgrowl.min.js"></script>
+<script type="text/javascript"
+	src="assets/js/plugins/ui/moment/moment.min.js"></script>
+<script type="text/javascript"
+	src="assets/js/plugins/pickers/daterangepicker.js"></script>
+<script type="text/javascript"
+	src="assets/js/plugins/pickers/anytime.min.js"></script>
+<script type="text/javascript"
+	src="assets/js/plugins/pickers/pickadate/picker.js"></script>
+<script type="text/javascript"
+	src="assets/js/plugins/pickers/pickadate/picker.date.js"></script>
+<script type="text/javascript"
+	src="assets/js/plugins/pickers/pickadate/picker.time.js"></script>
+<script type="text/javascript"
+	src="assets/js/plugins/pickers/pickadate/legacy.js"></script>
+
+<script type="text/javascript" src="assets/js/imageupload.js"></script>
+<script type="text/javascript" src="assets/js/core/app.js"></script>
+<script type="text/javascript" src="assets/js/pages/wizard_form.js"></script>
+<script type="text/javascript" src="assets/js/pages/picker_date.js"></script>
+<style type="text/css">
+label {font-weight 400;
+	
+}
+
+select {
+	display: block;
+	width: 100%;
+	height: 25px;
+	padding: 2px 6px;
+	font-size: 13px;
+	line-height: 1.5384616;
+	color: #333333;
+	background-color: #fff;
+	background-image: none;
+	border: 1px solid #ddd;
+	border-radius: 3px;
+}
+</style>
+</head>
+
+<body>
+
+	<!-- Main navbar -->
+	<div class="navbar navbar-inverse">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="dashboard.html"><img
+				src="assets/images/CM/P Logo.png" alt=""
+				style="width: 200px; height: 50px; margin-top: -12px;"></a>
+
+			<ul class="nav navbar-nav visible-xs-block">
+				<li><a data-toggle="collapse" data-target="#navbar-mobile"><i
+						class="icon-tree5"></i></a></li>
+				<li><a class="sidebar-mobile-main-toggle"><i
+						class="icon-paragraph-justify3"></i></a></li>
+			</ul>
+		</div>
+
+		<div class="navbar-collapse collapse" id="navbar-mobile">
+			<ul class="nav navbar-nav" style="margin-left: -10px;">
+				<li><a class="sidebar-control sidebar-main-toggle hidden-xs"
+					title="Side-Bar Toggle"><i class="icon-paragraph-justify3"></i></a></li>
+			</ul>
+
+
+
+			<ul class="nav navbar-nav navbar-right">
+				<p class="navbar-text">
+					<span class="label bg-success">Online</span>
+				</p>
+				<li class="dropdown language-switch"><a class="dropdown-toggle"
+					data-toggle="dropdown"> <img src="assets/images/flags/gb.png"
+						class="position-left" alt=""> English <span class="caret"></span>
+				</a>
+
+					<ul class="dropdown-menu">
+						<li><a class="deutsch"><img
+								src="assets/images/flags/de.png" alt=""> Deutsch</a></li>
+						<li><a class="ukrainian"><img
+								src="assets/images/flags/ua.png" alt=""> Українська</a></li>
+						<li><a class="english"><img
+								src="assets/images/flags/gb.png" alt=""> English</a></li>
+						<li><a class="espana"><img
+								src="assets/images/flags/es.png" alt=""> España</a></li>
+						<li><a class="russian"><img
+								src="assets/images/flags/ru.png" alt=""> Русский</a></li>
+					</ul></li>
+
+
+				<li class="dropdown"><a href="#" class="dropdown-toggle"
+					data-toggle="dropdown"> <i class="icon-people"></i> <span
+						class="visible-xs-inline-block position-right">Users</span>
+				</a>
+
+					<div class="dropdown-menu dropdown-content">
+						<div class="dropdown-content-heading">
+							Users online
+							<ul class="icons-list">
+								<li><a href="#"><i class="icon-gear"></i></a></li>
+							</ul>
+						</div>
+
+						<ul class="media-list dropdown-content-body width-300">
+							<li class="media">
+								<div class="media-left">
+									<img src="assets/images/profile/1.jpg"
+										class="img-circle img-sm" alt="">
+								</div>
+								<div class="media-body">
+									<a href="#" class="media-heading text-semibold">Jordana
+										Ansley</a> <span class="display-block text-muted text-size-small">Lead
+										web developer</span>
+								</div>
+								<div class="media-right media-middle">
+									<span class="status-mark border-success"></span>
+								</div>
+							</li>
+
+							<li class="media">
+								<div class="media-left">
+									<img src="assets/images/profile/3.jpg"
+										class="img-circle img-sm" alt="">
+								</div>
+								<div class="media-body">
+									<a href="#" class="media-heading text-semibold">Will Brason</a>
+									<span class="display-block text-muted text-size-small">Marketing
+										manager</span>
+								</div>
+								<div class="media-right media-middle">
+									<span class="status-mark border-danger"></span>
+								</div>
+							</li>
+
+							<li class="media">
+								<div class="media-left">
+									<img src="assets/images/profile/4.jpg"
+										class="img-circle img-sm" alt="">
+								</div>
+								<div class="media-body">
+									<a href="#" class="media-heading text-semibold">Hanna
+										Walden</a> <span class="display-block text-muted text-size-small">Project
+										manager</span>
+								</div>
+								<div class="media-right media-middle">
+									<span class="status-mark border-success"></span>
+								</div>
+							</li>
+
+							<li class="media">
+								<div class="media-left">
+									<img src="assets/images/profile/5.jpg"
+										class="img-circle img-sm" alt="">
+								</div>
+								<div class="media-body">
+									<a href="#" class="media-heading text-semibold">Dori
+										Laperriere</a> <span
+										class="display-block text-muted text-size-small">Business
+										developer</span>
+								</div>
+								<div class="media-right media-middle">
+									<span class="status-mark border-warning-300"></span>
+								</div>
+							</li>
+
+							<li class="media">
+								<div class="media-left">
+									<img src="assets/images/profile/6.jpg"
+										class="img-circle img-sm" alt="">
+								</div>
+								<div class="media-body">
+									<a href="#" class="media-heading text-semibold">Vanessa
+										Aurelius</a> <span
+										class="display-block text-muted text-size-small">UX
+										expert</span>
+								</div>
+								<div class="media-right media-middle">
+									<span class="status-mark border-grey-400"></span>
+								</div>
+							</li>
+						</ul>
+
+						<div class="dropdown-content-footer">
+							<a href="#" data-popup="tooltip" title="All users"><i
+								class="icon-menu display-block"></i></a>
+						</div>
+					</div></li>
+				<li class="dropdown"><a href="#" class="dropdown-toggle"
+					data-toggle="dropdown"> <i class="icon-git-compare"></i> <span
+						class="visible-xs-inline-block position-right">Git updates</span>
+						<span class="badge bg-warning-400">9</span>
+				</a>
+
+					<div class="dropdown-menu dropdown-content">
+						<div class="dropdown-content-heading">
+							Git updates
+							<ul class="icons-list">
+								<li><a href="#"><i class="icon-sync"></i></a></li>
+							</ul>
+						</div>
+
+						<ul class="media-list dropdown-content-body width-350">
+							<li class="media">
+								<div class="media-left">
+									<a href="#"
+										class="btn border-primary text-primary btn-flat btn-rounded btn-icon btn-sm"><i
+										class="icon-git-pull-request"></i></a>
+								</div>
+
+								<div class="media-body">
+									Drop the IE <a href="#">specific hacks</a> for temporal inputs
+									<div class="media-annotation">4 minutes ago</div>
+								</div>
+							</li>
+
+							<li class="media">
+								<div class="media-left">
+									<a href="#"
+										class="btn border-warning text-warning btn-flat btn-rounded btn-icon btn-sm"><i
+										class="icon-git-commit"></i></a>
+								</div>
+
+								<div class="media-body">
+									Add full font overrides for popovers and tooltips
+									<div class="media-annotation">36 minutes ago</div>
+								</div>
+							</li>
+
+							<li class="media">
+								<div class="media-left">
+									<a href="#"
+										class="btn border-info text-info btn-flat btn-rounded btn-icon btn-sm"><i
+										class="icon-git-branch"></i></a>
+								</div>
+
+								<div class="media-body">
+									<a href="#">Chris Arney</a> created a new <span
+										class="text-semibold">Design</span> branch
+									<div class="media-annotation">2 hours ago</div>
+								</div>
+							</li>
+
+							<li class="media">
+								<div class="media-left">
+									<a href="#"
+										class="btn border-success text-success btn-flat btn-rounded btn-icon btn-sm"><i
+										class="icon-git-merge"></i></a>
+								</div>
+
+								<div class="media-body">
+									<a href="#">Eugene Kopyov</a> merged <span
+										class="text-semibold">Master</span> and <span
+										class="text-semibold">Dev</span> branches
+									<div class="media-annotation">Dec 18, 18:36</div>
+								</div>
+							</li>
+
+							<li class="media">
+								<div class="media-left">
+									<a href="#"
+										class="btn border-primary text-primary btn-flat btn-rounded btn-icon btn-sm"><i
+										class="icon-git-pull-request"></i></a>
+								</div>
+
+								<div class="media-body">
+									Have Carousel ignore keyboard events
+									<div class="media-annotation">Dec 12, 05:46</div>
+								</div>
+							</li>
+						</ul>
+
+						<div class="dropdown-content-footer">
+							<a href="#" data-popup="tooltip" title="All activity"><i
+								class="icon-menu display-block"></i></a>
+						</div>
+					</div></li>
+				<li class="dropdown"><a href="#" class="dropdown-toggle"
+					data-toggle="dropdown"> <i class="icon-bubbles4"></i> <span
+						class="visible-xs-inline-block position-right">Messages</span> <span
+						class="badge bg-warning-400">2</span>
+				</a>
+
+					<div class="dropdown-menu dropdown-content width-350">
+						<div class="dropdown-content-heading">
+							Messages
+							<ul class="icons-list">
+								<li><a href="#"><i class="icon-compose"></i></a></li>
+							</ul>
+						</div>
+
+						<ul class="media-list dropdown-content-body">
+							<li class="media">
+								<div class="media-left">
+									<img src="assets/images/profile/2.jpg"
+										class="img-circle img-sm" alt=""> <span
+										class="badge bg-danger-400 media-badge">5</span>
+								</div>
+
+								<div class="media-body">
+									<a href="#" class="media-heading"> <span
+										class="text-semibold">James Alexander</span> <span
+										class="media-annotation pull-right">04:58</span>
+									</a> <span class="text-muted">who knows, maybe that would be
+										the best thing for me...</span>
+								</div>
+							</li>
+
+							<li class="media">
+								<div class="media-left">
+									<img src="assets/images/profile/1.jpg"
+										class="img-circle img-sm" alt=""> <span
+										class="badge bg-danger-400 media-badge">4</span>
+								</div>
+
+								<div class="media-body">
+									<a href="#" class="media-heading"> <span
+										class="text-semibold">Margo Baker</span> <span
+										class="media-annotation pull-right">12:16</span>
+									</a> <span class="text-muted">That was something he was
+										unable to do because...</span>
+								</div>
+							</li>
+
+							<li class="media">
+								<div class="media-left">
+									<img src="assets/images/profile/8.jpg"
+										class="img-circle img-sm" alt="">
+								</div>
+								<div class="media-body">
+									<a href="#" class="media-heading"> <span
+										class="text-semibold">Jeremy Victorino</span> <span
+										class="media-annotation pull-right">22:48</span>
+									</a> <span class="text-muted">But that would be extremely
+										strained and suspicious...</span>
+								</div>
+							</li>
+
+							<li class="media">
+								<div class="media-left">
+									<img src="assets/images/profile/9.jpg"
+										class="img-circle img-sm" alt="">
+								</div>
+								<div class="media-body">
+									<a href="#" class="media-heading"> <span
+										class="text-semibold">Beatrix Diaz</span> <span
+										class="media-annotation pull-right">Tue</span>
+									</a> <span class="text-muted">What a strenuous career it is
+										that I've chosen...</span>
+								</div>
+							</li>
+
+							<li class="media">
+								<div class="media-left">
+									<img src="assets/images/profile/5.jpg"
+										class="img-circle img-sm" alt="">
+								</div>
+								<div class="media-body">
+									<a href="#" class="media-heading"> <span
+										class="text-semibold">Richard Vango</span> <span
+										class="media-annotation pull-right">Mon</span>
+									</a> <span class="text-muted">Other travelling salesmen live
+										a life of luxury...</span>
+								</div>
+							</li>
+						</ul>
+
+						<div class="dropdown-content-footer">
+							<a href="#" data-popup="tooltip" title="All messages"><i
+								class="icon-menu display-block"></i></a>
+						</div>
+					</div></li>
+				<li><a href="logintc.html" title="Logout"><i class="icon-switch2"></i></a></li>
+			</ul>
+
+		</div>
+	</div>
+	<!-- /main navbar -->
+
+
+	<!-- Page container -->
+	<div class="page-container" style="height: 400px;">
+
+		<!-- Page content -->
+		<div class="page-content" style="background: #ecf0f5;">
+
+			<!-- Main sidebar -->
+			<div class="sidebar sidebar-main">
+				<div class="sidebar-content">
+
+					<!-- User menu -->
+					<div class="sidebar-user">
+						<div class="category-content">
+							<div class="media">
+								<a href="#" class="media-left"><img
+									src="assets/images/profile/2.jpg" class="img-circle img-sm"
+									alt=""></a>
+								<div class="media-body">
+									<!-- <span class="media-heading text-semibold">Victoria Baker</span>
+									<div class="text-size-mini text-muted">
+										<i class="icon-pin text-size-small"></i> &nbsp;Santa Ana, CA
+									</div> -->
+									<a class="dropdown-toggle" data-toggle="dropdown">
+
+										<div class="row">
+											<div class="col-sm-10">
+												<span class="media-heading text-semibold">Victoria
+													Baker</span> <i class="icon-pin text-size-small"></i> &nbsp;Santa
+												Ana, CA
+											</div>
+											<div class="col-sm-2">
+												<i class="glyphicon glyphicon-menu-down"
+													style="margin-left: -30px; margin-top: 12px;"></i>
+											</div>
+										</div>
+
+
+
+									</a>
+
+									<ul class="dropdown-menu dropdown-menu-right">
+										<li><a href="#"><i class="icon-user-plus"></i> My
+												profile</a></li>
+										<li><a href="#"><i class="icon-coins"></i> My balance</a></li>
+										<li><a href="#"><span
+												class="badge bg-teal-400 pull-right">58</span> <i
+												class="icon-comment-discussion"></i> Messages</a></li>
+										<li class="divider"></li>
+										<li><a href="#"><i class="icon-cog5"></i> Account
+												settings</a></li>
+										<li><a href="logintc.html"><i class="icon-switch2"></i> Logout</a></li>
+									</ul>
+								</div>
+
+								<!-- 	<div class="media-left media-middle">
+									<ul class="icons-list">
+										<li class="dropdown dropdown-user">
+									<a class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-menu-down"></i></a>
+
+										<ul class="dropdown-menu dropdown-menu-right">
+											<li><a href="#"><i class="icon-user-plus"></i> My profile</a></li>
+											<li><a href="#"><i class="icon-coins"></i> My balance</a></li>
+											<li><a href="#"><span class="badge bg-blue pull-right">58</span> <i class="icon-comment-discussion"></i> Messages</a></li>
+											<li class="divider"></li>
+											<li><a href="#"><i class="icon-cog5"></i> Account settings</a></li>
+											<li><a href="#"><i class="icon-switch2"></i> Logout</a></li>
+										</ul>
+									</li>
+									</ul>
+								</div> -->
+							</div>
+						</div>
+					</div>
+					<!-- /user menu -->
+
+
+					<!-- Main navigation -->
+					<div class="sidebar-category sidebar-category-visible">
+						<div class="category-content no-padding">
+							<ul class="navigation navigation-main navigation-accordion">
+
+								<!-- Main -->
+								<li class="navigation-header"><span>Home</span> <i
+									class="icon-menu" title="Main pages"></i></li>
+								<li><a href="dashboard.html"><i class="icon-home4"></i> <span>Dashboard</span></a></li>
+								<li><a href="analytics.html"><i class="glyphicon glyphicon-stats"></i> <span>Analytics</span></a></li>
+								<li><a href="reports.html"><i class="glyphicon glyphicon-stats"></i> <span>Reports</span></a></li>
+								<li><a href="kpi-bootstrap.html"><i class="glyphicon glyphicon-stats"></i> <span>KPI</span></a></li>
+								<!-- <li class="active"><a href="addtc.html"><i class="icon-add"></i><span>ADD</span></a></li> -->
+								<li class="active"><a href="doorlist.html"><i
+										class="icon-list"></i><span> Doors </span></a></li>
+								<li><a href="uploadtc.html"><i class="icon-upload"></i><span>
+											Import Data </span></a></li>
+
+								<!-- <li><a href="detailtc.html"><i class="icon-book"></i><span> Detail </span></a></li> -->
+							</ul>
+						</div>
+					</div>
+					<!-- /main navigation -->
+
+				</div>
+			</div>
+			<!-- /main sidebar -->
+
+
+			<!-- Main content -->
+			<div class="content-wrapper">
+
+				<!-- Page header -->
+				<div class="page-header page-header-default"
+					style="background: #ecf0f5;">
+					<div class="page-header-content">
+						<div class="page-title" style="padding:15px 15px 15px 0;">
+							<h4>
+								<a href="doorlist.html"><i class="icon-arrow-left52 position-left" style="color:black;"></i></a> <span
+									class="text-semibold">Add Door</span>
+							</h4>
+						</div>
+
+					</div>
+				</div>
+				<!-- /page header -->
+
+
+				<!-- Content area -->
+				<div class="content">
+
+					<!-- Form horizontal -->
+					<!-- <div class="panel panel-flat">
+						<div class="panel-heading">
+							<h5 class="panel-title">Add Door</h5>
+							<div class="heading-elements">
+								<ul class="icons-list">
+			                		<li><a data-action="collapse"></a></li>
+			                		<li><a data-action="reload"></a></li>
+			                		<li><a data-action="close"></a></li>
+			                	</ul>
+		                	</div>
+						</div>
+
+						<div class="panel-body">
+							<form class="form-horizontal" action="#">
+								<fieldset class="content-group">
+
+									<div class="form-group">
+										<label class="control-label col-lg-2">Door Number</label>
+										<div class="col-lg-10">
+											<input type="text" class="form-control">
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="control-label col-lg-2">Street</label>
+										<div class="col-lg-10">
+											<input type="text" class="form-control">
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="control-label col-lg-2">City</label>
+										<div class="col-lg-10">
+											<input type="text" class="form-control">
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="control-label col-lg-2">State</label>
+										<div class="col-lg-10">
+											<input type="text" class="form-control">
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="control-label col-lg-2">Zip Code</label>
+										<div class="col-lg-10">
+											<input type="text" class="form-control">
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="control-label col-lg-2">Region</label>
+										<div class="col-lg-10">
+											<input type="text" class="form-control input-xlg">
+											<div class="form-control-feedback">
+															<i class="icon-pin-alt"></i>
+														</div>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="control-label col-lg-2">Type</label>
+										<div class="col-lg-10">
+											<input type="text" class="form-control">
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="control-label col-lg-2">Category</label>
+										<div class="col-lg-10">
+											<input type="text" class="form-control">
+										</div>
+									</div>
+
+								<div class="text-right">
+									<button type="submit" class="btn btn-primary" disabled="disabled">Submit <i class="icon-arrow-right14 position-right"></i></button>
+								</div>
+							</form>
+						</div>
+					</div> -->
+					<div class="panel panel-white">
+						<div class="panel-heading">
+							<div>
+								<div>
+									<div>
+										<h6 class="panel-title text-bold">Add Door Details</h6>
+										<div class="heading-elements">
+											<ul class="icons-list">
+												<li><a data-action="collapse"></a></li>
+												<li><a data-action="reload"></a></li>
+												<li><a data-action="close"></a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="panel-body">
+							<form class="form-basic" action="#">
+								<fieldset class="step" id="step1">
+
+									<legend style="color: #00BCD4; font-weight: bold;">Door
+										Details</legend>
+									<div class="col-md-12" style="margin-top: -20px;">
+
+										<div class="row">
+
+											<div class="col-md-4">
+												<div class="form-group">
+													<label style="font-weight: bold;">Door #</label> <input
+														type="text" name="name" class="form-control">
+												</div>
+											</div>
+											<div class="col-md-4">
+												<label style="font-weight: bold;">Comp Store</label>
+												<div class="form-group">
+													<label class="checkbox-inline"><input type="checkbox" class="form-control btn btn-default" style="margin-top:-10px; height: 24px;"></label>
+												</div>
+											</div>
+
+										</div>
+										<div class="row">
+											<div class="col-md-4">
+												<div class="form-group">
+													<label>Street </label> <input type="text" name="street"
+														class="form-control">
+												</div>
+											</div>
+											<div class="col-md-2">
+												<div class="form-group">
+													<label>State </label> <input type="text" name="city"
+														class="form-control">
+												</div>
+											</div>
+											<div class="col-md-2">
+												<div class="form-group">
+													<label>Zip </label> <input type="text" name="city"
+														class="form-control">
+												</div>
+											</div>
+
+											<div class="col-md-2">
+												<div class="form-group">
+													<label>City </label> <input type="text" name="city"
+														class="form-control">
+												</div>
+											</div>
+											<div class="col-md-2">
+												<div class="form-group">
+													<label>Region </label> <select>
+														<option>Select</option>
+														<option>West</option>
+														<option>South</option>
+														<option>NorthEast</option>
+														<option>Central</option>
+														<option>MidWest</option>
+													</select>
+												</div>
+											</div>
+										</div>
+
+										<div class="row">
+											<div class="col-md-4">
+												<div class="form-group">
+													<label>Type </label> <select>
+														<option>Select</option>
+														<option>Mall</option>
+														<option>LifeStyle</option>
+														<option>FreeStanding</option>
+													</select>
+												</div>
+											</div>
+
+											<div class="col-md-4">
+												<div class="form-group">
+													<label>Category </label> <select>
+														<option>Select</option>
+														<option>A</option>
+														<option>B</option>
+														<option>C</option>
+														<option>D</option>
+
+													</select>
+												</div>
+											</div>
+
+											<div class="col-md-4">
+												<div class="form-group">
+													<label>Location Moniker </label> <input type="text"
+														name="region" class="form-control">
+												</div>
+											</div>
+
+
+										</div>
+										<div class="row">
+											<div class="col-md-4">
+												<div class="form-group">
+													<label>General Manager </label> <input type="text"
+														name="region" class="form-control">
+												</div>
+											</div>
+											<div class="col-md-4">
+												<div class="form-group">
+													<label>District Manager </label> <input type="email"
+														name="state" class="form-control">
+												</div>
+											</div>
+
+											<div class="col-md-4">
+												<div class="form-group">
+													<label>Landlord </label> <input type="text" name="zip"
+														class="form-control">
+												</div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-4">
+												<div class="form-group">
+													<label>Acquisition Date </label>
+													<div class="input-group">
+														<input type="text" class="form-control datepicker-menus">
+														<span class="input-group-addon"> <i
+															class="icon-calendar"></i>
+														</span>
+													</div>
+												</div>
+											</div>
+											<div class="col-md-4">
+												<div class="form-group">
+													<label>Last Renovation Date </label>
+													<div class="input-group date" data-provide="datepicker">
+														<input type="text" class="form-control datepicker-menus">
+														<div class="input-group-addon">
+															<span class="icon-calendar"></span>
+														</div>
+													</div>
+												</div>
+											</div>
+												<div class="col-md-4">
+												<div class="form-group">
+													<label>Opening Date </label>
+													<div class="input-group date" data-provide="datepicker">
+														<input type="text" class="form-control datepicker-menus">
+														<div class="input-group-addon">
+															<span class="icon-calendar"></span>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-4">
+												<div class="form-group">
+													<label>Door Style </label> <select>
+														<option>Select</option>
+														<option>Legacy</option>
+														<option>Craftsman</option>
+														<option>Standout</option>
+													</select>
+												</div>
+											</div>
+											<div class="col-md-4">
+												<div class="form-group">
+													<label>Rent and Occupancy </label> <input type="text"
+														name="state" class="form-control">
+												</div>
+											</div>
+
+											<div class="col-md-4">
+												<div class="form-group">
+													<label>Custom </label> <input type="text" name="zip"
+														class="form-control">
+												</div>
+											</div>
+										</div>
+									<!-- 	<div class="row">
+											<div class="col-md-4">
+												<div class="form-group">
+													<label>Gross Sales </label> <input type="text"
+														name="region" class="form-control">
+												</div>
+											</div>
+											<div class="col-md-4">
+												<div class="form-group">
+													<label>Net Sales </label> <input type="text"
+														name="state" class="form-control">
+												</div>
+											</div>
+
+											<div class="col-md-4">
+												<div class="form-group">
+													<label>UPT </label> <input type="text" name="zip"
+														class="form-control">
+												</div>
+											</div>
+										</div> -->
+									</div>
+								</fieldset>
+
+
+								<fieldset class="step" id="step2">
+
+									<legend style="color: #00BCD4; font-weight: bold;">Brand
+										Details</legend>
+
+									<div class="col-md-12" style="margin-top: -20px;">
+										<div class="row">
+											<div class="col-md-3">
+												<div class="form-group">
+													<label>Gender </label> <select>
+														<option>Select</option>
+														<option>Mens</option>
+														<option>Womens</option>
+														<option>Combined</option>
+													</select>
+												</div>
+											</div>
+
+											<div class="col-md-3">
+												<div class="form-group">
+													<label>SQ FT/ SQ M </label> <input type="text" name="type"
+														class="form-control">
+												</div>
+											</div>
+
+											<div class="col-md-3">
+												<div class="form-group">
+													<label>Selling Sqft </label> <input type="text" name="custom1"
+														class="form-control">
+												</div>
+											</div>
+											<div class="col-md-3">
+												<div class="form-group">
+													<label># Registers </label> <input type="text"
+														name="custom1" class="form-control">
+												</div>
+											</div>
+											
+
+										</div>
+										<div class="row">
+											<div class="col-md-3">
+												<div class="form-group">
+													<label>Brand 1 </label> <input type="text" name="category"
+														class="form-control">
+												</div>
+											</div>
+
+											<div class="col-md-3">
+												<div class="form-group">
+													<label>Brand 2 </label> <input type="text" name="type"
+														class="form-control">
+												</div>
+											</div>
+
+											<div class="col-md-3">
+												<div class="form-group">
+													<label>Brand 3 </label> <input type="text" name="category"
+														class="form-control">
+												</div>
+											</div>
+											<div class="col-md-3">
+												<div class="form-group">
+													<label>Brand 4 </label> <input type="text" name="category"
+														class="form-control">
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-12">
+										<div class="row">
+											<div class="col-md-6">
+												<!-- <div class="form-group">
+												<label class="display-block">Store Images
+													</label> <input type="file" name="images" class="file-styled" readonly="true" accept="image/*">
+												</div> -->
+												<label>Upload Image  </label>
+														            <div class="input-group">
+														                <input type="text" class="form-control image-preview-filename image-preview" placeholder="No image chosen" style="height:36px;"> 
+														                <span class="input-group-btn">
+														                    
+														                    <button type="button" class="btn btn-default image-preview-clear" style="display:none;">
+														                        <span class="glyphicon glyphicon-remove"></span>Clear
+														                    </button>
+														                    
+														                    <div class="btn btn-info image-preview-input">
+														                        <span class="fa fa-camera"></span>
+														                        <span class="image-preview-input-title">Browse</span>
+														                        <input type="file" accept="image/*" name="input-file-preview"/> 
+														                    </div>
+														                </span>
+														            </div>
+											</div>
+											<div class="col-md-6">
+												<div class="form-group">
+													<label>Additional information </label>
+													<textarea name="additional-info" rows="2" cols="5"
+														placeholder="If you want to add any info, enter here."
+														class="form-control" maxlength="100"></textarea>
+												</div>
+											</div>
+
+										</div>
+									</div>
+
+								</fieldset>
+
+
+
+
+								<div class="form-wizard-actions">
+									<button class="btn btn-default" id="basic-back" type="reset"
+										onclick="changebutton1();">Back</button>
+									<button class="btn btn-info" id="basic-next" type="submit"
+										onclick="changebutton();" style="margin-right:30px;">More</button>
+									<script type="text/javascript">
+										$(function() {
+
+											$('#basic-back').hide();
+											$('#submitb').hide();
+
+										});
+										function changebutton() {
+
+											$('#basic-next').hide();
+											$('#basic-back').show();
+											$('#submitb').show();
+
+										}
+										function changebutton1() {
+
+											$('#basic-next').show();
+											$('#basic-back').hide();
+											$('#submitb').hide();
+										}
+									</script>
+									<input class="btn btn-info" id="submitb" value="Submit"
+										type="button" disabled="disabled" style="margin-right:30px;"></input>
+								</div>
+							</form>
+						</div>
+					</div>
+
+
+					<!-- /form horizontal -->
+
+
+					<!-- Footer -->
+					<!-- <div class="footer-fluid text-muted text-center">
+						&copy; 2015. <a href="#">Limitless Web App Kit</a> by <a href="http //themeforest.net/user/Kopyov" target="_blank">Eugene Kopyov</a>
+					</div> -->
+					<!-- /footer -->
+
+				</div>
+				<!-- /content area -->
+
+			</div>
+			<!-- /main content -->
+
+		</div>
+		<!-- /page content -->
+
+	</div>
+	<!-- /page container -->
+
+</body>
+</html>

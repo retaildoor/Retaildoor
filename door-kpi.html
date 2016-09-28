@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+<![CDATA[
+Within this Character Data block I can
+use double dashes as much as I want (along with <, &, ', and ")
+*and* %MyParamEntity; will be expanded to the text
+"Has been expanded" ... however, I can't use
+the CEND sequence (if I need to use it I must escape one of the
+brackets or the greater-than sign).
+]]>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Retail Door Analysis</title>
+
+	<!-- Global stylesheets -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
+	<link href="assets/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/bootstrap.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/core.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/components.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/colors.css" rel="stylesheet" type="text/css">
+	<!-- /global stylesheets -->
+
+	<!-- Core JS files -->
+	<script type="text/javascript" src="assets/js/plugins/loaders/pace.min.js"></script>
+	<script type="text/javascript" src="assets/js/core/libraries/jquery.min.js"></script>
+	<script type="text/javascript" src="assets/js/core/libraries/bootstrap.min.js"></script>
+	<script type="text/javascript" src="assets/js/plugins/loaders/blockui.min.js"></script>
+	<!-- /core JS files -->
+
+	<!-- Theme JS files -->
+	<script type="text/javascript" src="assets/js/plugins/visualization/d3/d3.min.js"></script>
+	<script type="text/javascript" src="assets/js/plugins/visualization/d3/d3_tooltip.js"></script>
+	<script type="text/javascript" src="assets/js/plugins/forms/styling/switchery.min.js"></script>
+	<script type="text/javascript" src="assets/js/plugins/forms/styling/uniform.min.js"></script>
+	<script type="text/javascript" src="assets/js/plugins/forms/selects/bootstrap_multiselect.js"></script>
+	<script type="text/javascript" src="assets/js/plugins/ui/moment/moment.min.js"></script>
+	<script type="text/javascript" src="assets/js/plugins/pickers/daterangepicker.js"></script>
+	<script type="text/javascript" src="assets/js/plugins/visualization/echarts/echarts.js"></script>
+
+	<script type="text/javascript" src="assets/js/core/app.js"></script>
+	<script type="text/javascript" src="assets/js/charts/echarts/combinations.js"></script>
+	<script type="text/javascript" src="assets/js/charts/echarts/lines_areas.js"></script>
+	<script type="text/javascript" src="assets/js/pages/dashboard.js"></script>
+	
+	<!-- /theme JS files -->
+	<style type="text/css">
+	.selectcategory{
+		display: block;
+		width: 100%;
+		padding: 2px 6px;
+		font-size: 13px;
+		line-height: 1.5384616;
+		color: #333333;
+		border: 1px solid #ddd;
+		border-radius: 3px;
+	}
+	</style>	
+</head>
+
+<body>
+
+	<!-- Main navbar -->
+	<div class="navbar navbar-inverse">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="dashboard.html"><img
+				src="assets/images/CM/P Logo.png" alt=""
+				style="width: 200px; height: 50px; margin-top: -12px;"></a>
+
+			<ul class="nav navbar-nav visible-xs-block">
+				<li><a data-toggle="collapse" data-target="#navbar-mobile"><i
+						class="icon-tree5"></i></a></li>
+				<li><a class="sidebar-mobile-main-toggle"><i
+						class="icon-paragraph-justify3"></i></a></li>
+			</ul>
+		</div>
+
+		<div class="navbar-collapse collapse" id="navbar-mobile">
+			<ul class="nav navbar-nav" style="margin-left: -10px;">
+				<li><a class="sidebar-control sidebar-main-toggle hidden-xs"
+					title="Side-Bar Toggle"><i class="icon-paragraph-justify3"></i></a></li>
+			</ul>
+
+
+
+			<ul class="nav navbar-nav navbar-right">
+				<p class="navbar-text">
+					<span class="label bg-success">Online</span>
+				</p>
+				<li class="dropdown language-switch"><a class="dropdown-toggle"
+					data-toggle="dropdown"> <img src="assets/images/flags/gb.png"
+						class="position-left" alt=""> English <span class="caret"></span>
+				</a>
+
+					<ul class="dropdown-menu">
+						<li><a class="deutsch"><img
+								src="assets/images/flags/de.png" alt=""> Deutsch</a></li>
+						<li><a class="ukrainian"><img
+								src="assets/images/flags/ua.png" alt=""> Українська</a></li>
+						<li><a class="english"><img
+								src="assets/images/flags/gb.png" alt=""> English</a></li>
+						<li><a class="espana"><img
+								src="assets/images/flags/es.png" alt=""> España</a></li>
+						<li><a class="russian"><img
+								src="assets/images/flags/ru.png" alt=""> Русский</a></li>
+					</ul></li>
+
+
+				<li class="dropdown"><a href="#" class="dropdown-toggle"
+					data-toggle="dropdown"> <i class="icon-people"></i> <span
+						class="visible-xs-inline-block position-right">Users</span>
+				</a>
+
+					<div class="dropdown-menu dropdown-content">
+						<div class="dropdown-content-heading">
+							Users online
+							<ul class="icons-list">
+								<li><a href="#"><i class="icon-gear"></i></a></li>
+							</ul>
+						</div>
+
+						<ul class="media-list dropdown-content-body width-300">
+							<li class="media">
+								<div class="media-left">
+									<img src="assets/images/profile/1.jpg"
+										class="img-circle img-sm" alt="">
+								</div>
+								<div class="media-body">
+									<a href="#" class="media-heading text-semibold">Jordana
+										Ansley</a> <span class="display-block text-muted text-size-small">Lead
+										web developer</span>
+								</div>
+								<div class="media-right media-middle">
+									<span class="status-mark border-success"></span>
+								</div>
+							</li>
+
+							<li class="media">
+								<div class="media-left">
+									<img src="assets/images/profile/3.jpg"
+										class="img-circle img-sm" alt="">
+								</div>
+								<div class="media-body">
+									<a href="#" class="media-heading text-semibold">Will Brason</a>
+									<span class="display-block text-muted text-size-small">Marketing
+										manager</span>
+								</div>
+								<div class="media-right media-middle">
+									<span class="status-mark border-danger"></span>
+								</div>
+							</li>
+
+							<li class="media">
+								<div class="media-left">
+									<img src="assets/images/profile/4.jpg"
+										class="img-circle img-sm" alt="">
+								</div>
+								<div class="media-body">
+									<a href="#" class="media-heading text-semibold">Hanna
+										Walden</a> <span class="display-block text-muted text-size-small">Project
+										manager</span>
+								</div>
+								<div class="media-right media-middle">
+									<span class="status-mark border-success"></span>
+								</div>
+							</li>
+
+							<li class="media">
+								<div class="media-left">
+									<img src="assets/images/profile/5.jpg"
+										class="img-circle img-sm" alt="">
+								</div>
+								<div class="media-body">
+									<a href="#" class="media-heading text-semibold">Dori
+										Laperriere</a> <span
+										class="display-block text-muted text-size-small">Business
+										developer</span>
+								</div>
+								<div class="media-right media-middle">
+									<span class="status-mark border-warning-300"></span>
+								</div>
+							</li>
+
+							<li class="media">
+								<div class="media-left">
+									<img src="assets/images/profile/6.jpg"
+										class="img-circle img-sm" alt="">
+								</div>
+								<div class="media-body">
+									<a href="#" class="media-heading text-semibold">Vanessa
+										Aurelius</a> <span
+										class="display-block text-muted text-size-small">UX
+										expert</span>
+								</div>
+								<div class="media-right media-middle">
+									<span class="status-mark border-grey-400"></span>
+								</div>
+							</li>
+						</ul>
+
+						<div class="dropdown-content-footer">
+							<a href="#" data-popup="tooltip" title="All users"><i
+								class="icon-menu display-block"></i></a>
+						</div>
+					</div></li>
+				<li class="dropdown"><a href="#" class="dropdown-toggle"
+					data-toggle="dropdown"> <i class="icon-git-compare"></i> <span
+						class="visible-xs-inline-block position-right">Git updates</span>
+						<span class="badge bg-warning-400">9</span>
+				</a>
+
+					<div class="dropdown-menu dropdown-content">
+						<div class="dropdown-content-heading">
+							Git updates
+							<ul class="icons-list">
+								<li><a href="#"><i class="icon-sync"></i></a></li>
+							</ul>
+						</div>
+
+						<ul class="media-list dropdown-content-body width-350">
+							<li class="media">
+								<div class="media-left">
+									<a href="#"
+										class="btn border-primary text-primary btn-flat btn-rounded btn-icon btn-sm"><i
+										class="icon-git-pull-request"></i></a>
+								</div>
+
+								<div class="media-body">
+									Drop the IE <a href="#">specific hacks</a> for temporal inputs
+									<div class="media-annotation">4 minutes ago</div>
+								</div>
+							</li>
+
+							<li class="media">
+								<div class="media-left">
+									<a href="#"
+										class="btn border-warning text-warning btn-flat btn-rounded btn-icon btn-sm"><i
+										class="icon-git-commit"></i></a>
+								</div>
+
+								<div class="media-body">
+									Add full font overrides for popovers and tooltips
+									<div class="media-annotation">36 minutes ago</div>
+								</div>
+							</li>
+
+							<li class="media">
+								<div class="media-left">
+									<a href="#"
+										class="btn border-info text-info btn-flat btn-rounded btn-icon btn-sm"><i
+										class="icon-git-branch"></i></a>
+								</div>
+
+								<div class="media-body">
+									<a href="#">Chris Arney</a> created a new <span
+										class="text-semibold">Design</span> branch
+									<div class="media-annotation">2 hours ago</div>
+								</div>
+							</li>
+
+							<li class="media">
+								<div class="media-left">
+									<a href="#"
+										class="btn border-success text-success btn-flat btn-rounded btn-icon btn-sm"><i
+										class="icon-git-merge"></i></a>
+								</div>
+
+								<div class="media-body">
+									<a href="#">Eugene Kopyov</a> merged <span
+										class="text-semibold">Master</span> and <span
+										class="text-semibold">Dev</span> branches
+									<div class="media-annotation">Dec 18, 18:36</div>
+								</div>
+							</li>
+
+							<li class="media">
+								<div class="media-left">
+									<a href="#"
+										class="btn border-primary text-primary btn-flat btn-rounded btn-icon btn-sm"><i
+										class="icon-git-pull-request"></i></a>
+								</div>
+
+								<div class="media-body">
+									Have Carousel ignore keyboard events
+									<div class="media-annotation">Dec 12, 05:46</div>
+								</div>
+							</li>
+						</ul>
+
+						<div class="dropdown-content-footer">
+							<a href="#" data-popup="tooltip" title="All activity"><i
+								class="icon-menu display-block"></i></a>
+						</div>
+					</div></li>
+				<li class="dropdown"><a href="#" class="dropdown-toggle"
+					data-toggle="dropdown"> <i class="icon-bubbles4"></i> <span
+						class="visible-xs-inline-block position-right">Messages</span> <span
+						class="badge bg-warning-400">2</span>
+				</a>
+
+					<div class="dropdown-menu dropdown-content width-350">
+						<div class="dropdown-content-heading">
+							Messages
+							<ul class="icons-list">
+								<li><a href="#"><i class="icon-compose"></i></a></li>
+							</ul>
+						</div>
+
+						<ul class="media-list dropdown-content-body">
+							<li class="media">
+								<div class="media-left">
+									<img src="assets/images/profile/2.jpg"
+										class="img-circle img-sm" alt=""> <span
+										class="badge bg-danger-400 media-badge">5</span>
+								</div>
+
+								<div class="media-body">
+									<a href="#" class="media-heading"> <span
+										class="text-semibold">James Alexander</span> <span
+										class="media-annotation pull-right">04:58</span>
+									</a> <span class="text-muted">who knows, maybe that would be
+										the best thing for me...</span>
+								</div>
+							</li>
+
+							<li class="media">
+								<div class="media-left">
+									<img src="assets/images/profile/1.jpg"
+										class="img-circle img-sm" alt=""> <span
+										class="badge bg-danger-400 media-badge">4</span>
+								</div>
+
+								<div class="media-body">
+									<a href="#" class="media-heading"> <span
+										class="text-semibold">Margo Baker</span> <span
+										class="media-annotation pull-right">12:16</span>
+									</a> <span class="text-muted">That was something he was
+										unable to do because...</span>
+								</div>
+							</li>
+
+							<li class="media">
+								<div class="media-left">
+									<img src="assets/images/profile/8.jpg"
+										class="img-circle img-sm" alt="">
+								</div>
+								<div class="media-body">
+									<a href="#" class="media-heading"> <span
+										class="text-semibold">Jeremy Victorino</span> <span
+										class="media-annotation pull-right">22:48</span>
+									</a> <span class="text-muted">But that would be extremely
+										strained and suspicious...</span>
+								</div>
+							</li>
+
+							<li class="media">
+								<div class="media-left">
+									<img src="assets/images/profile/9.jpg"
+										class="img-circle img-sm" alt="">
+								</div>
+								<div class="media-body">
+									<a href="#" class="media-heading"> <span
+										class="text-semibold">Beatrix Diaz</span> <span
+										class="media-annotation pull-right">Tue</span>
+									</a> <span class="text-muted">What a strenuous career it is
+										that I've chosen...</span>
+								</div>
+							</li>
+
+							<li class="media">
+								<div class="media-left">
+									<img src="assets/images/profile/5.jpg"
+										class="img-circle img-sm" alt="">
+								</div>
+								<div class="media-body">
+									<a href="#" class="media-heading"> <span
+										class="text-semibold">Richard Vango</span> <span
+										class="media-annotation pull-right">Mon</span>
+									</a> <span class="text-muted">Other travelling salesmen live
+										a life of luxury...</span>
+								</div>
+							</li>
+						</ul>
+
+						<div class="dropdown-content-footer">
+							<a href="#" data-popup="tooltip" title="All messages"><i
+								class="icon-menu display-block"></i></a>
+						</div>
+					</div></li>
+				<li><a href="logintc.html" title="Logout"><i class="icon-switch2"></i></a></li>
+			</ul>
+
+		</div>
+	</div>
+	<!-- /main navbar -->
+
+
+	<!-- Page container -->
+	<div class="page-container">
+
+		<!-- Page content -->
+		<div class="page-content" style="background: #ecf0f5;">
+
+			<!-- Main sidebar -->
+			<div class="sidebar sidebar-main">
+				<div class="sidebar-content">
+
+					<!-- User menu -->
+					<div class="sidebar-user">
+						<div class="category-content">
+							<div class="media">
+								<a href="#" class="media-left"><img
+									src="assets/images/profile/2.jpg" class="img-circle img-sm"
+									alt=""></a>
+								<div class="media-body">
+									<!-- <span class="media-heading text-semibold">Victoria Baker</span>
+									<div class="text-size-mini text-muted">
+										<i class="icon-pin text-size-small"></i> &nbsp;Santa Ana, CA
+									</div> -->
+									<a class="dropdown-toggle" data-toggle="dropdown">
+
+										<div class="row">
+											<div class="col-sm-10">
+												<span class="media-heading text-semibold">Victoria
+													Baker</span> <i class="icon-pin text-size-small"></i> &nbsp;Santa
+												Ana, CA
+											</div>
+											<div class="col-sm-2">
+												<i class="glyphicon glyphicon-menu-down"
+													style="margin-left: -30px; margin-top: 12px;"></i>
+											</div>
+										</div>
+
+
+
+									</a>
+
+									<ul class="dropdown-menu dropdown-menu-right">
+										<li><a href="#"><i class="icon-user-plus"></i> My
+												profile</a></li>
+										<li><a href="#"><i class="icon-coins"></i> My balance</a></li>
+										<li><a href="#"><span
+												class="badge bg-teal-400 pull-right">58</span> <i
+												class="icon-comment-discussion"></i> Messages</a></li>
+										<li class="divider"></li>
+										<li><a href="#"><i class="icon-cog5"></i> Account
+												settings</a></li>
+										<li><a href="logintc.html"><i class="icon-switch2"></i> Logout</a></li>
+									</ul>
+								</div>
+
+								<!-- 	<div class="media-left media-middle">
+									<ul class="icons-list">
+										<li class="dropdown dropdown-user">
+									<a class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-menu-down"></i></a>
+
+										<ul class="dropdown-menu dropdown-menu-right">
+											<li><a href="#"><i class="icon-user-plus"></i> My profile</a></li>
+											<li><a href="#"><i class="icon-coins"></i> My balance</a></li>
+											<li><a href="#"><span class="badge bg-blue pull-right">58</span> <i class="icon-comment-discussion"></i> Messages</a></li>
+											<li class="divider"></li>
+											<li><a href="#"><i class="icon-cog5"></i> Account settings</a></li>
+											<li><a href="#"><i class="icon-switch2"></i> Logout</a></li>
+										</ul>
+									</li>
+									</ul>
+								</div> -->
+							</div>
+						</div>
+					</div>
+					<!-- /user menu -->
+
+
+					<!-- Main navigation -->
+					<div class="sidebar-category sidebar-category-visible">
+						<div class="category-content no-padding">
+							<ul class="navigation navigation-main navigation-accordion">
+
+								<!-- Main -->
+								<li class="navigation-header"><span>Home</span> <i
+									class="icon-menu" title="Main pages"></i></li>
+								<li><a href="dashboard.html"><i class="icon-home4"></i> <span>Dashboard</span></a></li>
+								<li><a href="analytics.html"><i class="glyphicon glyphicon-stats"></i> <span>Analytics</span></a></li>
+								<li><a href="reports.html"><i class="glyphicon glyphicon-stats"></i> <span>Reports</span></a></li>
+								<li><a href="kpi-bootstrap.html"><i class="glyphicon glyphicon-stats"></i> <span>KPI</span></a></li>
+								<li class="active"><a href="doorlist.html"><i class="icon-list"></i><span>
+											Doors </span></a></li>
+								<li><a href="uploadtc.html"><i class="icon-upload"></i><span>
+											Import Data </span></a></li>
+								<!-- <li><a href="addtc.html"><i class="icon-add"></i><span>ADD </span></a></li> -->
+
+								<!-- <li><a href="detailtc.html"><i class="icon-book"></i><span> Detail </span></a></li>	 -->
+
+							</ul>
+						</div>
+					</div>
+					<!-- /main navigation -->
+
+				</div>
+			</div>
+			<!-- /main sidebar -->
+
+
+			<!-- Main content -->
+			<div class="content-wrapper">
+				<!-- Page header -->
+				<div class="page-header page-header-default"
+					style="background: #ecf0f5;">
+					<div class="page-header-content">
+						<div class="page-title" style="padding:15px 15px 15px 0;">
+							<h4>
+								<a href="doorlist.html"><i class="icon-arrow-left52 position-left" style="color:black;"></i></a> <span
+									class="text-semibold">Door KPI</span>
+									<button class="btn btn-info pull-right" onclick="location.href='detailstc.html'">Proceed To Door Details</button>
+							</h4>								
+						</div>
+					</div>
+				</div>
+				<!-- /page header -->
+				<div class="col-md-12">
+					<div class="col-md-3">	
+						<div class="panel" style="background:#009e55;">
+							<div class="panel-body">
+								<h6 class="text-bold text-center" style="font-size:16px; margin-top:-10px; color:white;">This Year Sales</h6> 
+								<!-- <div id="this-year"></div> -->
+								<div class="text-bold heading-text text-center" style="font-size:18px;color:#E6E6FA;">$9,334,244</div>
+								<div class="text-bold text-center" style="font-size:14px;">$8,559,940(9.05%)<div class="glyphicon glyphicon-triangle-top"></div> From LY</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3">	
+						<div class="panel" style="background: #E81123;">
+							<div class="panel-body">
+							 	<h6 class="text-bold text-center" style="font-size:16px; margin-top:-10px; color:white;">This Month Sales</h6> 
+								<div class="text-bold heading-text text-center" style="font-size:18px; color:#E6E6FA;">$677,854</div>
+								<div class="text-bold text-center" style="font-size:14px;">$859,382(21.12%)<div class="glyphicon glyphicon-triangle-bottom"></div> From LY</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="panel-body">
+							<div class="chart-container">
+								<div class="chart" id="basic_donut" style="height:260px; width:500px; margin-top:-20px;"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-12">
+					<div class="col-md-3">	
+						<div class="panel" style="background:#009e55; margin-top:-150px;">
+							<div class="panel-body">
+								<h6 class="text-bold text-center" style="font-size:16px; margin-top:-10px; color:white;">This Year Visitors</h6> 
+								<!-- <div id="this-year"></div> -->
+								<div class="text-bold heading-text text-center" style="font-size:18px;color:#E6E6FA;">6,432</div>
+								<div class="text-bold text-center" style="font-size:14px;">6,022(6.81%)<div class="glyphicon glyphicon-triangle-top"></div> From LY</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3">	
+						<div class="panel" style="background: #E81123; margin-top:-150px;">
+							<div class="panel-body">
+							 	<h6 class="text-bold text-center" style="font-size:16px; margin-top:-10px; color:white;">This Month Visitors</h6> 
+								<div class="text-bold heading-text text-center" style="margin-top:-5px; font-size: 20px; color:#E6E6FA;">425</div>
+								<div class="text-bold text-center" style="font-size:14px;">696(38.94%)<div class="glyphicon glyphicon-triangle-bottom"></div> From LY</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-12">
+					<div class="col-md-3">			
+						<div class="row">		
+							<div class="panel" style="margin-left:10px; background:#009e55; ">
+								<div class="panel-body">
+									<h6 class="text-bold" style="font-size:18px; margin-top:-10px; color:white;">Select a Category</h6>
+									<select class="selectcategory" oninput="selectchange();">
+										<option value="Apparel">Apparel</option>
+										<option value="FashionJewelery">Fashion Jewelery</option>
+										<option value="Bags">Bags</option>
+										<option value="Shoes">Shoes</option>
+									</select>
+								</div>
+							</div> 
+						</div>
+						<div class="row" id="apparel">
+							<div class="col-md-6">
+								<div class="panel" style="margin-top:-10px;background:#009e55; ">
+									<div class="panel-body">
+										<h6 class="text-bold text-center" style="font-size:15px; margin-top:-10px; color:white;">Total Sales</h6>
+										<div class="text-center" style="font-size:18px;color:#E6E6FA;">3,838,376</div>
+									</div>
+								</div> 
+							</div>
+							<div class="col-md-6">
+								<div class="panel" style="margin-top:-10px; margin-right:-10px;background:#009e55;">
+									<div class="panel-body">
+										<h6 class="text-bold text-center" style="font-size:15px; margin-top:-10px; color:white;">Units Sold</h6>
+										<div class="text-center" style="font-size:18px;color:#E6E6FA;">51,454</div>
+										<!-- <div class="text-bold text-center" style="font-size:14px; color:#C62828;">(9.35%)<div class="glyphicon glyphicon-triangle-bottom"></div> From LY</div> -->
+									</div>
+								</div> 
+							</div>
+						</div>
+						<div class="row" id="fashionjewelery">
+							<div class="col-md-6">
+								<div class="panel" style="margin-top:-10px;background:#009e55; ">
+									<div class="panel-body">
+										<h6 class="text-bold text-center" style="font-size:15px; margin-top:-10px; color:white;">Total Sales</h6>
+										<div class="text-center" style="font-size:18px;color:#E6E6FA;">1,344,872</div>
+									</div>
+								</div> 
+							</div>
+							<div class="col-md-6">
+								<div class="panel" style="margin-top:-10px; margin-right:-10px;background:#009e55;">
+									<div class="panel-body">
+										<h6 class="text-bold text-center" style="font-size:15px; margin-top:-10px; color:white;">Units Sold</h6>
+										<div class="text-center" style="font-size:18px;color:#E6E6FA;">37,734</div>
+										<!-- <div class="text-bold text-center" style="font-size:14px; color:#C62828;">(9.35%)<div class="glyphicon glyphicon-triangle-bottom"></div> From LY</div> -->
+									</div>
+								</div> 
+							</div>
+						</div>
+						<div class="row" id="bags">
+							<div class="col-md-6">
+								<div class="panel" style="background:#009e55; margin-top:-10px;">
+									<div class="panel-body">
+										<h6 class="text-bold text-center" style="font-size:15px; margin-top:-10px; color:white;">Total Sales</h6>
+										<div class="text-center" style="font-size:18px;color:#E6E6FA;">7,001,336</div>
+									</div>
+								</div> 
+							</div>
+							<div class="col-md-6">
+								<div class="panel" style="background:#009e55;margin-top:-10px; margin-right:-10px;">
+									<div class="panel-body">
+										<h6 class="text-bold text-center" style="font-size:15px; margin-top:-10px; color:white;">Units Sold</h6>
+										<div class="text-center" style="font-size:18px;color:#E6E6FA;">56,759</div>
+										<!-- <div class="text-bold text-center" style="font-size:14px; color:#C62828;">(9.35%)<div class="glyphicon glyphicon-triangle-bottom"></div> From LY</div> -->
+									</div>
+								</div> 
+							</div>
+						</div>
+						<div class="row" id="shoes">
+							<div class="col-md-6">
+								<div class="panel" style="background:#009e55; margin-top:-10px;">
+									<div class="panel-body">
+										<h6 class="text-bold text-center" style="font-size:15px; margin-top:-10px; color:white;">Total Sales</h6>
+										<div class="text-center" style="font-size:18px;color:#E6E6FA;">5,709,600</div>
+									</div>
+								</div> 
+							</div>
+							<div class="col-md-6">
+								<div class="panel" style="background:#009e55;margin-top:-10px; margin-right:-10px;">
+									<div class="panel-body">
+										<h6 class="text-bold text-center" style="font-size:15px; margin-top:-10px; color:white;">Units Sold</h6>
+										<div class="text-center" style="font-size:18px;color:#E6E6FA;">37,589</div>
+										<!-- <div class="text-bold text-center" style="font-size:14px; color:#C62828;">(9.35%)<div class="glyphicon glyphicon-triangle-bottom"></div> From LY</div> -->
+									</div>
+								</div> 
+							</div>
+						</div>
+						<!-- </div>	 -->
+					</div>
+					<div class="col-md-9">
+						<div class="panel-body" style="padding: 6px; background:aliceblue;">
+							<div class="chart-container">
+								<div class="chart" style="height:205px;" id="connect_column9"></div>
+								<div class="chart" style="height:205px;" id="connect_column10"></div>
+								<div class="chart" style="height:205px;" id="connect_column11"></div>
+								<div class="chart" style="height:205px;" id="connect_column12"></div>
+							</div>							
+						</div>
+					</div>
+				</div>
+				<script type="text/javascript">
+				$(window).load(function () {
+					$("#connect_column10").hide();
+					$("#connect_column11").hide();
+					$("#connect_column12").hide();
+					$("#fashionjewelery").hide();
+				    $("#shoes").hide();
+				    $("#bags").hide();
+				});
+				function selectchange(){
+				    $("select").change(function(){
+				        $(this).find("option:selected").each(function(){
+				            if($(this).attr("value")=="Apparel"){
+				            	$("#connect_column10").hide();
+				            	$("#connect_column11").hide();
+				            	$("#connect_column12").hide();	
+				            	$("#fashionjewelery").hide();
+				                $("#shoes").hide();
+				                $("#bags").hide();	            	
+				            	$("#connect_column9").show();
+				            	$("#apparel").show();
+				            }
+				            else if($(this).attr("value")=="FashionJewelery"){		               
+				                $("#connect_column9").hide();
+				                $("#connect_column11").hide();
+				                $("#connect_column12").hide();
+				                $("#apparel").hide();
+				                $("#shoes").hide();
+				                $("#bags").hide();
+				                $("#connect_column10").show();
+				                $("#fashionjewelery").show();
+				            }
+				            else if($(this).attr("value")=="Bags"){
+				                $("#connect_column9").hide();
+				                $("#connect_column10").hide();
+				                $("#connect_column12").hide();				                
+				                $("#apparel").hide();
+				                $("#fashionjewelery").hide();
+				                $("#shoes").hide();
+				                $("#connect_column11").show();
+				                $("#bags").show();
+				            }
+				            else if($(this).attr("value")=="Shoes"){
+				                $("#connect_column9").hide();
+				                $("#connect_column10").hide();
+				            	$("#connect_column11").hide();
+				            	$("#apparel").hide();
+				                $("#fashionjewelery").hide();
+				                $("#bags").hide();
+				                $("#connect_column12").show();
+				                $("#shoes").show();
+				            }
+				            else{
+				                $("#connect_column9").show();
+				                $("#apparel").show();
+				            }
+				        });
+				    }).change();
+				}
+				</script>
+				<div class="col-md-12">
+					<div class="col-md-6">
+						<div class="tabbable">
+							<div class="tab-content">
+								<div class="tab-pane fade in active" id="details">
+									<div class="panel panel-default" style="border-top: solid; margin-top:10px;border-color: #00BCD4;">
+										<div class="panel-heading">
+											<div>
+												<div class="col-md-12">
+													<div class="col-md-6">
+														<h6 class="panel-title"	style="margin-top: -10px; margin-left: -20px;">Monthly Sales</h6>
+													</div>
+													<div class="col-md-6">
+														<div class="heading-elements position-right">
+															<ul class="icons-list" style="margin-right: -40px;">
+																<li><a data-action="close"></a></li>
+															</ul>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="panel-body">
+											<div class="chart-container">
+												<div class="chart" id="basic_lines" style="height:250px;"></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="tabbable">
+							<div class="tab-content">
+								<div class="tab-pane fade in active" id="details">
+									<div class="panel panel-default" style="border-top: solid; margin-top:10px;border-color: #00BCD4;">
+										<div class="panel-heading">
+											<div>
+												<div class="col-md-12">
+													<div class="col-md-6">
+														<h6 class="panel-title"	style="margin-top: -10px; margin-left: -20px;">Monthly Visitors</h6>
+													</div>
+													<div class="col-md-6">
+														<div class="heading-elements position-right">
+															<ul class="icons-list" style="margin-right: -40px;">
+																<li><a data-action="close"></a></li>
+															</ul>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="panel-body">
+											<div class="chart-container">
+												<div class="chart" id="basic_lines1" style="height:250px;"></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				</div>
+				</div>
+				<div class="chart" style="height:250px; display:none;" id="connect_column"></div>					
+				<div class="chart" style="height:250px; display:none;" id="connect_column1"></div>
+				<div class="chart" style="height:250px; display:none;" id="connect_column2"></div>
+				<div class="chart" style="height:250px; display:none;" id="connect_column3"></div>
+				<div class="chart" style="height:175px; display:none;" id="connect_column4"></div>
+				<div class="chart" style="height:175px; display:none;" id="connect_column5"></div>
+				<div class="chart" style="height:175px; display:none;" id="connect_column6"></div>
+				<div class="chart" style="height:175px; display:none;" id="connect_column7"></div>
+				<div class="chart" style="height:175px; display:none;" id="connect_column8"></div>
+				<div class="chart" style="height:175px; display:none;" id="connect_column13"></div>
+				<div class="chart" style="height:175px; display:none;" id="connect_column14"></div>
+				<div class="chart" style="height:175px; display:none;" id="connect_column15"></div>
+				<div class="chart" style="height:175px; display:none;" id="connect_column16"></div>
+				<div class="chart has-fixed-height" id="stacked_lines" style="display:none;"></div>
+				<div class="chart has-fixed-height" id="inverted_axes" style="display:none;"></div>
+				<div class="chart has-fixed-height" id="line_point" style="display:none;"></div>
+				<div class="chart has-fixed-height" id="basic_area" style="display:none;"></div>
+				<div class="chart has-fixed-height" id="stacked_area" style="display:none;"></div>
+				<div class="chart has-fixed-height" id="reversed_value" style="display:none;"></div>
+				<div class="chart has-fixed-height" id="connect_pie" style="display:none;"></div>
+				<div class="chart has-fixed-height" id="line_bar" style="display:none;"></div>
+				<div class="chart has-fixed-height" id="scatter_pie" style="display:none;"></div>
+				<div class="chart has-fixed-height" id="column_pie" style="display:none;"></div>
+				<div id="lasagna_donut" style="display:none;"></div>
+				<div id="lasagna_donut" style="display:none;"></div>
+				<div id="basic_pie" style="display:none;"></div>
+				<div id="rose_diagram_hidden" style="display:none;"></div>
+				<div id="infographic_donut" style="display:none"></div>
+				<div id="rose_diagram_visible" style="display:none"></div>
+				<div id="pie_timeline" style="display:none"></div>
+				<div id="multiple_donuts" style="display:none"></div>
+				<div class="chart has-fixed-height" id="scatter_line" style="display:none;"></div>
+				<div class="chart has-fixed-height" id="candlestick_scatter" style="display:none;"></div>
+				<div id="today-revenue" style="display:none;"></div>
+				<div class="content-group" id="new-visitors" style="display:none;"></div>
+				<div class="content-group" id="new-sessions" style="display:none;"></div>
+				<div class="content-group" id="total-online" style="display:none;"></div>
+				<div class="position-relative" id="traffic-sources" style="display:none;"></div>
+				<div class="content-group-sm" id="app_sales" style="display:none;"></div>
+				<div id="monthly-sales-stats" style="display:none;"></div>
+				<div id="campaigns-donut" style="display:none;"></div>
+				<div id="campaign-status-pie" style="display:none;"></div>
+				<span class="progress-meter" id="today-progress" data-progress="30" style="display:none;"></span>
+				<span class="progress-meter" id="yesterday-progress" data-progress="65" style="display:none;"></span>
+				<div id="tickets-status" style="display:none;"></div>
+				<div class="content-group-sm svg-center position-relative" id="hours-available-progress" style="display:none;"></div>
+				<div id="hours-available-bars" style="display:none;"></div>
+				<div class="content-group-sm svg-center position-relative" id="goal-progress" style="display:none;"></div>
+				<div class="content-group-sm svg-center position-relative" id="goal-progress" style="display:none;"></div>
+				<div id="goal-bars" style="display:none;"></div>
+				<div id="sales-heatmap" style="display:none;"></div>
+				<div id="messages-stats" style="display:none;"></div>
+				<div id="server-load" style="display:none;"></div>
+
+			</div>
+			<!-- /main content -->
+
+		</div>
+		<!-- /page content -->
+
+	</div>
+	<!-- /page container -->
+
+</body>
+</html>
